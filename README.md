@@ -1,161 +1,214 @@
-# Project Remainder ⏰
+# 🐸 Project Remainder
 
-A lightweight, open-source desktop productivity app and session timer built with Python and Tkinter.
+> A lightweight, open-source productivity timer that helps you stay consistent with your projects.
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![Dependencies](https://img.shields.io/badge/dependencies-0%20(stdlib%20only)-success.svg)
+Project Remainder is a simple desktop productivity app built around one idea:
 
----
+**Work → Review → Track → Improve.**
 
-## 🎯 Overview
+Set a timer or start a stopwatch, work on your project, review your session when you're done, and let Project Remainder keep track of your progress.
 
-**Project Remainder** is a minimalist, distraction-free work-session timer and productivity tracker. It helps you focus on projects in deliberate time blocks, reviews what you accomplished at the end of each session, and provides clean statistical insights over time without bloat, accounts, or cloud dependencies.
-
-> *"A clock app that remembers when I worked, asks me what I accomplished, and shows me how consistently I've been working."*
+It also includes statistics, a to-do list, motivational quotes, reminders, a calendar, and customizable themes.
 
 ---
 
 ## ✨ Features
 
-- **⏱ Two Work Modes:**
-  - **Timer Mode:** Set fixed durations (presets like 15m, 25m, 40m, 60m, 90m or custom minutes) with an animated progress ring.
-  - **Stopwatch Mode:** Open-ended time tracking with Start, Pause, Resume, and Stop & Save.
-- **🔔 Session Review Overlay & Custom Audio:**
-  - Automatically pops up as an always-on-top window when your timer finishes or when you stop your stopwatch.
-  - **Custom MP3 / WAV Alarm Sound:** Choose any audio file from your computer or use the default system alert.
-  - Rate your productivity from 1 to 5 stars.
-  - Add notes on what you achieved.
-  - Mark off completed tasks directly from the review screen.
-- **📊 Statistics & Insights:**
-  - Breakdown by **Today**, **This Week**, **This Month**, and **This Year**.
-  - Total time worked, session count, average session duration, and average rating.
-  - Identifies your **Most Productive Day**.
-  - Built-in canvas charts for daily minutes worked and productivity trends over the last 7 days.
-  - Scrollable session log with date, duration, notes, and star ratings.
-- **☑ Integrated To-Do List (Optional):**
-  - Add, edit (double-click), delete, reorder (▲/▼), and check off tasks.
-  - Seamlessly links to the session review overlay.
-  - Easily toggle on/off in **Settings** (tasks are preserved when disabled).
-- **🛡 Crash & Restart Recovery:**
-  - Timer state checkpoints automatically every 5 seconds.
-  - If closed unexpectedly, Project Remainder detects the interrupted session on the next launch and offers to recover and log it.
-- **⚡ Super Lightweight & Zero Dependencies:**
-  - Built purely using the Python standard library (`tkinter`, `queue`, `threading`, `json`).
-  - Ultra-low RAM (~20–35 MB) and negligible CPU usage.
-  - 100% offline and local-first.
+### ⏱️ Timer
+
+* Set a custom work duration.
+* Alarm when the timer finishes.
+* Session review after the timer ends.
+* Review is locked until the alarm is turned off.
+
+### ⏱️ Stopwatch
+
+Track how long you actually work without setting a fixed duration.
+
+Supports:
+
+* Start
+* Pause
+* Resume
+* Stop
+* Save session
+
+### 📝 Session Review
+
+After a work session, record:
+
+* Productivity rating
+* What you accomplished
+* Session duration
+* Motivational quote
+
+Your session data is stored locally for later analysis.
+
+### 📊 Statistics & Analysis
+
+View your productivity over different periods:
+
+* Last 1 day
+* Last 7 days
+* Last 1 month
+* Last 1 year
+
+Statistics include:
+
+* Total time worked
+* Number of sessions
+* Average session duration
+* Average productivity
+* Productivity trends
+* Tasks completed
+* Most productive periods
+
+### ✅ To-Do List
+
+An optional built-in to-do list.
+
+You can:
+
+* Add tasks
+* Complete tasks
+* Edit tasks
+* Delete tasks
+
+The feature can be enabled or disabled from Settings.
+
+### 📅 Calendar & Reminders
+
+Plan important dates and events using the built-in calendar.
+
+* Calendar range covers 2 years before and 2 years after the current year.
+* Add events to specific dates and times.
+* Add notes to events.
+* Edit or delete reminders.
+* Receive reminders when their scheduled time arrives.
+* Reminders are stored locally.
+
+### 💬 Motivational Quote
+
+Display a motivational quote during session review.
+
+The quote can be customized from Settings.
+
+### 🎨 Themes
+
+Choose between:
+
+* ☀️ **Light**
+* 🌙 **Dark**
+* 🐸 **Clumsy** — the original Project Remainder appearance
+
+Your selected theme is saved and restored when the app starts.
+
+### 💾 Local Data
+
+Project Remainder is designed to work locally.
+
+Your session data, tasks, reminders, and settings are stored on your computer.
+
+No account or cloud service is required.
+
+You can also delete your saved session data from Settings.
 
 ---
 
-## 🎨 Design & Palette
+## 🎯 Why Project Remainder?
 
-Built with a modern, calm dark aesthetic focused on deep work:
-- **Primary Brand Color:** `#228822` (Forest Green)
-- **Background:** `#0d1117`
-- **Surface / Sidebar:** `#161b22`
-- **Cards / Containers:** `#21262d`
-- **Text:** `#e6edf3` / `#7d8590`
-- **Typography:** Segoe UI
+Most productivity apps try to become massive task-management systems.
 
----
+Project Remainder doesn't.
 
-## 🚀 Quick Start
+It's basically:
 
-### Prerequisites
-- Python 3.11 or newer (Python 3.14 tested)
-- Standard Tkinter library (included by default with Python on Windows and macOS)
+**A clock that remembers what you did.**
 
-### Installation & Run
-
-1. Clone or download the repository:
-   ```bash
-   git clone https://github.com/your-username/ProjectRemainder.git
-   cd ProjectRemainder
-   ```
-
-2. Run directly with Python (no `pip install` required!):
-   ```bash
-   python main.py
-   ```
+The goal is to keep the app lightweight while still giving you enough information to understand your work habits.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Built With
 
-```
-ProjectRemainder/
-├── main.py                  # Application entry point
-├── requirements.txt         # Standard library only documentation
-├── LICENSE                  # MIT License
-├── README.md                # Project documentation
-├── app/
-│   ├── __init__.py
-│   ├── core/                # Core logic & data management (headless & testable)
-│   │   ├── __init__.py
-│   │   ├── settings_manager.py # Persistent user settings (JSON)
-│   │   ├── session_manager.py  # Session storage & queries (JSON)
-│   │   ├── stats_engine.py     # Pure statistics, filtering & chart calculations
-│   │   ├── todo_manager.py     # To-do task CRUD & reordering
-│   │   └── timer_engine.py     # Background thread timer & event queue
-│   └── ui/                  # Tkinter UI components
-│       ├── __init__.py
-│       ├── theme.py            # Color palette, font tokens & layout metrics
-│       ├── widgets.py          # Custom Canvas widgets (TimerRing, StarRating, BarChart, LineChart)
-│       ├── overlay_window.py   # Always-on-top review modal
-│       ├── dashboard_view.py   # Home dashboard & quick starts
-│       ├── timer_view.py       # Countdown timer view
-│       ├── stopwatch_view.py   # Stopwatch view
-│       ├── stats_view.py       # Statistics & analytics view
-│       ├── todo_view.py        # Task list view
-│       ├── settings_view.py    # Preferences & data folder access
-│       └── app_window.py       # Main window container, sidebar & navigation
-└── data/                    # Local storage (created automatically on launch)
-    ├── settings.json
-    ├── sessions.json
-    └── todos.json
-```
+* Python
+* Tkinter
+* Local file-based storage
+
+The project is designed to use as few resources and dependencies as possible.
 
 ---
 
-## 💾 Data Storage
+## 🤖 Made With AI
 
-All data is stored locally in human-readable JSON files located in the `data/` directory:
+Project Remainder was developed with the help of:
 
-### `data/sessions.json`
-```json
-{
-  "sessions": [
-    {
-      "id": "7b79a0cf-8a35-4309-8c9f-d31e9c2c6bf7",
-      "date": "2026-08-31",
-      "mode": "timer",
-      "start_time": "14:30:00",
-      "end_time": "14:55:00",
-      "duration_seconds": 1500,
-      "target_duration": 1500,
-      "productivity_rating": 5,
-      "notes": "Completed feature design and implementation.",
-      "tasks_completed": ["3d74c05e-851f-4bb2-b5e8-5ad45a90d970"]
-    }
-  ]
-}
-```
+* **ChatGPT — GPT-5.6 Luna**
+* **Google Gemini — Gemini 3.8 Flash**
+* **Anthropic Claude — Claude Sonnet 4.6**
+
+The AI tools were used for development assistance, debugging, architecture discussions, feature implementation, and code review.
+
+The project is still developed and reviewed by the project creator.
 
 ---
 
-## 🧪 Testing
+## 🚀 Getting Started
 
-To run the verification test suite:
+### Requirements
+
+* Python 3.x
+* Windows / supported desktop environment
+* Required Python packages listed in `requirements.txt`
+
+### Run
+
+Clone the repository:
+
 ```bash
-python -c "import app.core.timer_engine; import app.ui.app_window; print('OK')"
+git clone https://github.com/ItzClumsyDev/Project-Remainder.git
+cd Project-Remainder
 ```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
+python main.py
+```
+
+---
+
+## 🔒 Privacy
+
+Project Remainder is designed as a local-first application.
+
+Your productivity information is stored locally and is not uploaded to a Project Remainder server.
+
+---
+
+## 📌 Project Status
+
+**Active Development 🚧**
+
+Project Remainder is still being developed. Features and UI may change as the project evolves.
 
 ---
 
 ## 📜 License
 
-This project is open-source and licensed under the [MIT License](LICENSE).
+This project is open source.
 
+See the `LICENSE` file for details.
 
-This is created by AI:
-ChatGPT, Claude Sonnet, Gemini 3.7 flash
+---
+
+## 🐸 Project Remainder
+
+**Work on your project.
+Don't just think about it.**
