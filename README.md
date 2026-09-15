@@ -93,16 +93,6 @@ Display a motivational quote during session review.
 
 The quote can be customized from Settings.
 
-### 🎨 Themes
-
-Choose between:
-
-* ☀️ **Light**
-* 🌙 **Dark**
-* 🐸 **Clumsy** — the original Project Remainder appearance
-
-Your selected theme is saved and restored when the app starts.
-
 ### 💾 Local Data
 
 Project Remainder is designed to work locally.
