@@ -156,20 +156,24 @@ The project is still developed and reviewed by the project creator.
 Clone the repository:
 
 ```bash
-git clone https://github.com/ItzClumsyDev/Project-Remainder.git
+git clone -b v0.2 --single-branch https://github.com/ItzClumsyDev/Project-Remainder.git
+```
+```bash
 cd Project-Remainder
 ```
 
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+tar -xf v0.2.zip
 ```
 
-Run the application:
+```bash
+cd project
+```
 
 ```bash
-python main.py
+py main.py
 ```
 
 ---
